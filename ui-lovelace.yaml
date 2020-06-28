@@ -1,0 +1,77 @@
+title: Home
+views:
+  - title: Dashboard
+    icon: mdi:home-assistant
+
+    badges:
+      - entity: vacuum.xiaowa
+    cards:
+      - entity: weather.home
+        type: weather-forecast
+      - cards:
+        - cards:
+          - entity: sensor.processor_use
+            max: 100
+            min: 0
+            severity:
+              green: 0
+              red: 70
+              yellow: 55
+            type: gauge
+          - entity: sensor.memory_use
+            max: 2000
+            min: 0
+            severity:
+              green: 0
+              red: 1700
+              yellow: 1300
+            type: gauge
+          type: horizontal-stack
+        - cards:
+          - entity: sensor.load_1m
+            max: 1
+            min: 0
+            name: CPU load 1m
+            severity:
+              green: 0
+              red: 80
+              yellow: 60
+            type: gauge
+          - entity: sensor.disk_use_percent_home
+            max: 100
+            min: 0
+            severity:
+              green: 0
+              red: 90
+              yellow: 80
+            theme: default
+            type: gauge
+          type: horizontal-stack
+        - entities:
+          - entity: binary_sensor.updater
+          type: entities
+        - cards:
+          - entity: sensor.cloudflare_round_trip
+            max: 300
+            min: 0
+            severity:
+              green: 15
+              red: 100
+              yellow: 60
+            type: gauge
+          - entity: sensor.google_round_trip
+            max: 300
+            min: 0
+            severity:
+              green: 15
+              red: 100
+              yellow: 60
+            type: gauge
+          type: horizontal-stack
+          title: Network
+        title: Raspberry Pi hardware
+        type: vertical-stack
+
+#   ------------------------ ANOTHER ROOM---------------------------------------
+#  - title: Dashboard
+#    icon: mdi:home-assistant
